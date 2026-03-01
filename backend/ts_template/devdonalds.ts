@@ -45,8 +45,39 @@ app.post("/parse", (req:Request, res:Response) => {
 // [TASK 1] ====================================================================
 // Takes in a recipeName and returns it in a form that 
 const parse_handwriting = (recipeName: string): string | null => {
-  // TODO: implement me
-  return recipeName
+  if (recipeName.length <= 0) {
+    return null;
+  }
+  const regex = /[a-zA-Z ]/
+  let newRecipe = recipeName;
+  let test = "Riz@z RISO00t  to";
+  let answer = "";
+  for (const letter of test) {
+    if (regex.test(letter)) {
+      answer += letter.toLowerCase();
+    }
+    if (/[-_]/.test(letter)) {
+      answer += " ";
+    }
+  }
+
+  let first = true;
+  let whitespace = false;
+  if (answer[0] == "") {
+    whitespace = true;
+  }
+  let final_answer = ""
+  for (const letter2 of answer) {
+    if (first) {
+      final_answer += letter2.toUpperCase();
+      first = false;
+    }
+
+    if (whitespace) {
+      
+    }
+  }
+  return answer
 }
 
 // [TASK 2] ====================================================================
