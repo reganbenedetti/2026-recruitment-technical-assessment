@@ -56,7 +56,48 @@ body {
 
 .SearchComponent {
   height: 100px;
-  background-color: chocolate;
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Filters {
+  height: 50%;
+  width: 100px;
+  border: 1px;
+  border-color: orange;
+  border-style: solid;
+  align-items: center;
+  text-align: center;
+  margin-right: auto;
+}
+
+.SearchBar {
+  width: 50%;
+  height: 50%;
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+}
+
+.SearchBarContents {
+  display: flex;
+  text-indent: 20px;
+  margin-left: 20px;
+  color: gray;
+}
+
+.Sort {
+  height: 50%;
+  width: 100px;
+  border: 1px;
+  border-color: orange;
+  border-style: solid;
+  margin-left: auto;
+  text-align: center;
 }
 
 .Buildings {
@@ -72,6 +113,25 @@ body {
   height: 50%;
   width: 20%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+}
+
+.Building img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.Availability {
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  height: 20%;
+  width: 50%;
+  background-color: white;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  text-align: center;
 }
