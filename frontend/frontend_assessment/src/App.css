@@ -1,15 +1,18 @@
 body {
-  border: 1px;
+  /* border: 1px;
   border-style: solid;
-  border-color: black;
+  border-color: black; */
+  height: 600px;
+  margin: 5px;
+  padding-left: 10px;
 }
 
 .NavBar {
-  height: 100px;
-  background-color: blue;
-  border: 1px;
+  height: 50px;
+  /* background-color: blue; */
+  /* border: 1px;
   border-color: black;
-  border-style: solid;
+  border-style: solid; */
   display: flex;
   position: relative;
 }
@@ -17,9 +20,8 @@ body {
 .FreeRoomsLogo {
   display: flex;
   height: 100%;
-  width: 150px;
+  width: 110px;
   position:relative;
-  left: 5px;
 }
 
 .FreeRoomsText {
@@ -35,12 +37,12 @@ body {
 
 .Icons {
   right: 0px;
-  background-color: purple;
+  /* background-color: purple; */
   display: flex;
   height: 100%;
   width: 200px;
   position:absolute;
-  
+  align-items: center;
 }
 
 .Icon {
@@ -49,14 +51,14 @@ body {
   border-style: solid;
   border-radius: 10px;
   width: 40px;
-  height: 40%;
+  height: 70%;
   margin-right: 10px;
-  margin-top: 30px;
+  
 }
 
 .SearchComponent {
-  height: 100px;
-  background-color: pink;
+  height: 70px;
+  /* background-color: pink; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,12 +67,16 @@ body {
 .Filters {
   height: 50%;
   width: 100px;
-  border: 1px;
+  border: 2px;
   border-color: orange;
   border-style: solid;
+  border-radius: 10px;
   align-items: center;
   text-align: center;
   margin-right: auto;
+  display: flex;
+  justify-content: center;
+  color: orange;
 }
 
 .SearchBar {
@@ -93,27 +99,34 @@ body {
 .Sort {
   height: 50%;
   width: 100px;
-  border: 1px;
+  border: 2px;
   border-color: orange;
   border-style: solid;
+  border-radius: 10px;
   margin-left: auto;
   text-align: center;
+  justify-content: center;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  color: orange;
 }
 
 .Buildings {
-  background-color: green;
-  height: 400px;
-  display: flex;
+  
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   flex-wrap: wrap;
+  gap: 10px;
+  
 }
 
 .Building {
-  background-color: yellow;
-  
-  height: 50%;
-  width: 20%;
-  display: flex;
+  /* height: 50%;
+  width: 19.2%;
+  display: flex; */
   position: relative;
+  aspect-ratio: 9/8;
 }
 
 .Building img {
@@ -134,4 +147,68 @@ body {
   top: 8px;
   right: 8px;
   text-align: center;
+  border-radius: 10px;
+}
+
+.BuildingName {
+  width: 95%;
+  height: 20%;
+  background-color: orange;
+  position: absolute;
+  bottom: 0px;
+  text-indent: 10px;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+@media (max-width: 1100px) {
+  .Buildings {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .Buildings {
+    grid-template-columns: repeat(3, 1fr);
+  }
+ 
+  .SearchComponent {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 8px;
+    padding: 8px 0;
+  }
+}
+ 
+@media (max-width: 600px) {
+  .Buildings {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    padding: 0 10px;
+  }
+
+  .FreeRoomsText {
+    display: none;
+  }
+ 
+  .Buildings {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+ 
+  .Building {
+    aspect-ratio: 16 / 6;
+    border-radius: 12px;
+  }
+
+  .SearchBar {
+    order: -1;       /* search bar goes to top */
+    flex: 1 1 100%;  /* full width */
+  }
 }

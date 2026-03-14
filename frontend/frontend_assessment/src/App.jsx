@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import freeRoomsLogo from '../../assets/freeRoomsLogo.png'
+import freeroomsDoorClosed from '../../assets/freeroomsDoorClosed.png'
 import agsm from '../../assets/agsm.webp'
 import ainsworth from '../../assets/ainsworth.webp'
 import anitab from '../../assets/anitab.webp'
@@ -13,13 +14,13 @@ import colombo from '../../assets/colombo.webp'
 import cseBuilding from '../../assets/cseBuilding.webp'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [open, setOpen] = useState(true)
 
   return (
     <>
       <div className='NavBar'>
-        <div className='FreeRoomsLogo'>
-          <img src={freeRoomsLogo}/>
+        <div className='FreeRoomsLogo' onClick={() => setOpen(!open)}>  
+          <img src={open ? freeRoomsLogo : freeroomsDoorClosed} />        
         </div>
         <div className='FreeRoomsText'>
           Freerooms
@@ -59,11 +60,12 @@ function App() {
       <div className='Buildings'>
         {data.map((building) => (
           <div className='Building' key={building.name}>
-            <img src={building.building_picture} alt={building.name} />
-            {/* <p>{building.name}</p>
-            <p>{building.rooms_available} rooms available</p> */}
+            <img src={building.building_picture}/>
             <div className='Availability'>
               <p>{building.rooms_available} rooms available</p>
+            </div>
+            <div className='BuildingName'>
+              <p>{building.name}</p>
             </div>
           </div>
         ))}
