@@ -48,36 +48,41 @@ const parse_handwriting = (recipeName: string): string | null => {
   if (recipeName.length <= 0) {
     return null;
   }
-  const regex = /[a-zA-Z ]/
-  let newRecipe = recipeName;
-  let test = "Riz@z RISO00t  to";
-  let answer = "";
-  for (const letter of test) {
-    if (regex.test(letter)) {
-      answer += letter.toLowerCase();
+
+  let cleaned = "";
+  for (const letter of recipeName) {
+    if (/[a-zA-Z ]/.test(letter)) {
+      cleaned += letter.toLowerCase();
     }
     if (/[-_]/.test(letter)) {
-      answer += " ";
+      cleaned += " ";
     }
   }
 
-  let first = true;
-  let whitespace = false;
-  if (answer[0] == "") {
-    whitespace = true;
-  }
-  let final_answer = ""
-  for (const letter2 of answer) {
-    if (first) {
-      final_answer += letter2.toUpperCase();
-      first = false;
-    }
+  let final_answer = "";
+  let newWord = true;
 
-    if (whitespace) {
-      
+  for (const letter of cleaned) {
+    if (letter === " ") {
+      newWord = true;
+    } else {
+      if (newWord) {
+        if (final_answer.length > 0) {
+          final_answer += " ";
+        }
+        final_answer += letter.toUpperCase();
+        newWord = false;
+      } else {
+        final_answer += letter;
+      }
     }
   }
-  return answer
+
+  if (final_answer.length <= 0) {
+    return null;
+  }
+
+  return final_answer;
 }
 
 // [TASK 2] ====================================================================
